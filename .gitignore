@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+# photos and datasets are not committed (see README)
+*.jpg
+*.jpeg
+data/
+datasets/
+# generated pictures, except the ones in docs/
+src/*.png
