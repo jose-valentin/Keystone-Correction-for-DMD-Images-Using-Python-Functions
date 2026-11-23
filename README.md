@@ -1,6 +1,6 @@
 # Keystone correction for DMD projector images
 
-Python and OpenCV code for a university research project (UPRM, undergraduate research course).
+Python and OpenCV code for a university research project (UPRM, course Undergraduate research project at UPRM, advised by Dr. Venkataramani Kumar).
 The goal is to find a projected image (or a page) in a camera photo, find its four corners, and
 straighten it with a perspective transform. This is the keystone distortion problem for DMD
 (Digital Micromirror Device) projectors.
