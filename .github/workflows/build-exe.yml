@@ -2,7 +2,8 @@ name: Build Windows exe
 
 # Builds KeystoneDashboard.exe on a Windows machine at GitHub.
 # Run it by hand: Actions tab, "Build Windows exe", "Run workflow".
-# When a tag like v0.1 is pushed, it also attaches the exe to a GitHub Release.
+# When a tag like v0.1 is pushed (or a release is published from a new tag),
+# it also attaches the exe to the GitHub Release.
 on:
   workflow_dispatch:
   push:
@@ -33,4 +34,10 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "${{ github.ref_name }}" dist/KeystoneDashboard.exe --title "${{ github.ref_name }}" --notes "Keystone Dashboard for Windows."
+          TAG: ${{ github.ref_name }}
+        run: |
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release upload "$TAG" dist/KeystoneDashboard.exe --clobber
+          else
+            gh release create "$TAG" dist/KeystoneDashboard.exe --title "$TAG" --notes "Keystone Dashboard for Windows."
+          fi
