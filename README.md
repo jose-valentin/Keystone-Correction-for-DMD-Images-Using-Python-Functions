@@ -8,6 +8,12 @@ straighten it with a perspective transform. This is the keystone distortion prob
 This is a work in progress. Right now the code finds the four corners and straightens the
 shape. Finding the projector angles (yaw, pitch) from the corners is the next step.
 
+## Download the Windows dashboard
+
+Go to the [Releases page](https://github.com/jose-valentin/Keystone-Correction-for-DMD-Images-Using-Python-Functions/releases) and download `KeystoneDashboard.exe`. No Python needed. Windows may show a SmartScreen warning because the exe is not signed: click More info, then Run anyway.
+
+To build it yourself, install Python from python.org and run `build_exe.bat`. The exe ends up in the `dist` folder.
+
 ## What is in here
 
 | File | What it does |
@@ -20,6 +26,9 @@ shape. Finding the projector angles (yaw, pitch) from the corners is the next st
 | `test_find_page.py` | Tests on 200 synthetic scenes. |
 | `evaluate_smartdoc.py` | Tests on real photos from the SmartDoc dataset. |
 | `make_figures.py` | Helpers that draw the steps of the finder. |
+| `dashboard.py` | Simple Windows window (Tkinter). Open a photo, see the found screen and the straightened result, save the pictures. |
+| `analysis.py` | The functions behind the dashboard (no window code). |
+| `make_calibration_image.py` | Makes the plain white calibration frame with colored corner squares to project and photograph. |
 
 ## How to run
 
